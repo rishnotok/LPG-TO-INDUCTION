@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ ElectroMasala · set your LPG free · electric cookware</title>
+  <!-- Tailwind + Font Awesome 6 + Poppins (max attractiveness) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          animation: {
+            'levitate': 'levitate 7s ease-in-out infinite',
+            'pulse-glow': 'pulse-glow 2.2s ease-in-out infinite alternate',
+            'spin-slow': 'spin 12s linear infinite',
+            'float-pan': 'float-pan 10s ease-in-out infinite',
+          },
+          keyframes: {
+            levitate: {
+              '0%,100%': { transform: 'translateY(0px) rotate(0deg) scale(1)' },
+              '50%': { transform: 'translateY(-22px) rotate(2deg) scale(1.02)' },
+            },
+            'pulse-glow': {
+              '0%': { boxShadow: '0 0 0px 0px rgba(251, 146, 60, 0.3), 0 0 0px 0px rgba(249, 115, 22, 0.3)' },
+              '100%': { boxShadow: '0 0 30px 15px rgba(251, 146, 60, 0.5), 0 0 60px 30px rgba(249, 115, 22, 0.3)' },
+            },
+            'float-pan': {
+              '0%,100%': { transform: 'translate(0px, 0px) rotate(0deg)' },
+              '25%': { transform: 'translate(10px, -15px) rotate(3deg)' },
+              '50%': { transform: 'translate(-5px, -20px) rotate(-2deg)' },
+              '75%': { transform: 'translate(-15px, -5px) rotate(1deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { scroll-behavior: smooth; }
+    body {
+      background: #fef7e9;
+      background-image: radial-gradient(circle at 30% 40%, rgba(255, 237, 213, 0.5) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(254, 215, 170, 0.4) 0%, transparent 40%);
+    }
+    .hero-fire {
+      background: radial-gradient(ellipse at 30% 40%, #ffedd5, #fed7aa, #fde68a, #fef3c7);
+      position: relative;
+    }
+    .hero-fire::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.1"><path fill="%23f97316" d="M50 100 Q 70 60 100 60 Q 130 60 150 100 Q 130 140 100 140 Q 70 140 50 100"/></svg>');
+      background-size: 180px 180px;
+      background-repeat: repeat;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    .stat-3d {
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 20px 40px -15px rgba(249,115,22,0.4), inset 0 0 30px rgba(255,255,255,0.6);
+    }
+    .glossy-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid rgba(255,255,255,0.9);
+      box-shadow: 0 30px 50px -25px #f97316, 0 0 0 1px rgba(255,255,255,0.7) inset;
+    }
+    .liquid-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-shine::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -80%;
+      width: 250%;
+      height: 250%;
+      background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,245,220,0.9) 50%, rgba(255,255,255,0) 70%);
+      transform: rotate(20deg);
+      animation: shine 8s infinite linear;
+      pointer-events: none;
+    }
+    @keyframes shine {
+      0% { transform: rotate(20deg) translateX(-200%) translateY(-50%); }
+      25% { transform: rotate(20deg) translateX(0%) translateY(-20%); }
+      50% { transform: rotate(20deg) translateX(100%) translateY(20%); }
+      75% { transform: rotate(20deg) translateX(200%) translateY(50%); }
+      100% { transform: rotate(20deg) translateX(300%) translateY(80%); }
+    }
+    .price-splash {
+      background: linear-gradient(135deg, #fbbf24, #f97316, #ea580c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      text-shadow: 2px 4px 20px rgba(251,146,60,0.4);
+    }
+    .fire-number {
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(145deg, #b45309, #dc2626, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 8px 12px #fcd34d);
+    }
+  </style>
+</head>
+<body class="font-poppins text-stone-800 antialiased selection:bg-orange-300 selection:text-stone-900">
+
+<!-- 🔥 SEXY CRISIS BANNER (glassy + attention) -->
+<div class="fixed top-0 inset-x-0 z-[100] bg-gradient-to-r from-red-600/90 via-orange-500/90 to-amber-500/90 backdrop-blur-xl text-white py-3 px-5 shadow-2xl border-b border-white/30">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-sm md:text-base">
+    <div class="flex items-center gap-4">
+      <span class="relative flex h-8 w-8">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60"></span>
+        <span class="relative flex items-center justify-center h-8 w-8 rounded-full bg-white text-orange-600 shadow-xl"><i class="fas fa-exclamation text-base"></i></span>
+      </span>
+      <span class="font-black text-lg tracking-wide drop-shadow">LPG HELL: 30+ DAYS WAIT — BREAK FREE NOW</span>
+    </div>
+    <a href="#products" class="group bg-white/20 hover:bg-white/30 backdrop-blur-lg border border-white/40 text-white px-7 py-2 rounded-full font-extrabold text-sm transition-all shadow-2xl flex items-center gap-2"><i class="fas fa-bolt group-hover:rotate-12 transition"></i> GRAB ELECTRIC</a>
+  </div>
+</div>
+
+<!-- ✦ STUNNING NAV (liquid glass) -->
+<nav class="fixed w-full z-40 bg-white/80 backdrop-blur-2xl border-b border-white/40 top-[57px] shadow-2xl">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- logo with levitate -->
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 via-amber-500 to-red-500 flex items-center justify-center shadow-2xl animate-levitate">
+          <i class="fas fa-bolt text-white text-2xl drop-shadow-xl"></i>
+        </div>
+        <div>
+          <span class="text-3xl font-black tracking-tight bg-gradient-to-r from-amber-900 to-orange-700 bg-clip-text text-transparent">ElectroMasala</span>
+          <span class="hidden sm:block text-[0.7rem] font-black uppercase tracking-[0.2em] text-orange-400">⛃ no lpg · pure power</span>
+        </div>
+      </div>
+      <!-- nav links shiny -->
+      <div class="hidden md:flex items-center gap-10 text-sm font-bold text-stone-700">
+        <a href="#crisis" class="hover:text-orange-600 transition-all flex items-center gap-1 border-b-2 border-transparent hover:border-orange-400 pb-1"><i class="fas fa-fire-flame-curved"></i> crisis</a>
+        <a href="#products" class="hover:text-orange-600 transition border-b-2 border-transparent hover:border-orange-400 pb-1">cookware</a>
+        <a href="#smart" class="hover:text-orange-600 transition border-b-2 border-transparent hover:border-orange-400 pb-1">smart</a>
+        <a href="#savings" class="hover:text-orange-600 transition border-b-2 border-transparent hover:border-orange-400 pb-1">savings</a>
+      </div>
+      <!-- cart & CTA (glassy) -->
+      <div class="flex items-center gap-5">
+        <button class="relative p-2 text-stone-700 hover:text-orange-600 transition group">
+          <i class="fas fa-bag-shopping text-2xl group-hover:scale-110 transition"></i>
+          <span class="absolute -top-1 -right-1 bg-gradient-to-br from-red-500 to-orange-500 text-white text-xs font-black rounded-full h-5 w-5 flex items-center justify-center shadow-xl">0</span>
+        </button>
+        <a href="#products" class="hidden sm:inline-block bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-3 rounded-xl font-black text-sm shadow-2xl hover:shadow-orange-500/50 hover:-translate-y-1 transition-all border border-white/30">⚡ SHOCKING DEALS</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- 🚀 HERO – extreme eye candy -->
+<section class="hero-fire relative pt-44 pb-36 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-orange-200/30 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 relative z-20">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="text-center lg:text-left">
+        <!-- tag with fire -->
+        <span class="inline-block glossy-card text-orange-700 px-6 py-3 rounded-full text-sm font-black shadow-2xl border border-white/80 mb-8 tracking-widest"><i class="fas fa-triangle-exclamation mr-2 text-orange-500 animate-pulse"></i> LPG CRISIS? GONE.</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight">
+          <span class="text-stone-800">No cylinder,</span><br>
+          <span class="bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 bg-clip-text text-transparent drop-shadow-2xl">endless fire</span>
+        </h1>
+        <p class="text-2xl text-stone-700 mt-8 max-w-2xl lg:mx-0 mx-auto font-medium drop-shadow"><span class="bg-white/60 px-4 py-2 rounded-full">⚡ 14h electricity backup · cook anytime ⚡</span></p>
+        <!-- stats 3D floating -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16">
+          <div class="stat-3d rounded-3xl p-5 backdrop-blur-2xl hover:scale-110 transition-all duration-500">
+            <div class="fire-number">14</div>
+            <div class="text-xs font-black uppercase tracking-wider text-stone-600">hrs power</div>
+          </div>
+          <div class="stat-3d rounded-3xl p-5 backdrop-blur-2xl hover:scale-110 transition-all duration-500">
+            <div class="fire-number">365</div>
+            <div class="text-xs font-black uppercase tracking-wider text-stone-600">no refill</div>
+          </div>
+          <div class="stat-3d rounded-3xl p-5 backdrop-blur-2xl hover:scale-110 transition-all duration-500">
+            <div class="fire-number">70%</div>
+            <div class="text-xs font-black uppercase tracking-wider text-stone-600">savings</div>
+          </div>
+          <div class="stat-3d rounded-3xl p-5 backdrop-blur-2xl hover:scale-110 transition-all duration-500">
+            <div class="fire-number">50k+</div>
+            <div class="text-xs font-black uppercase tracking-wider text-stone-600">homes</div>
+          </div>
+        </div>
+        <!-- CTA insane -->
+        <div class="flex flex-wrap items-center gap-6 mt-16 justify-center lg:justify-start">
+          <a href="#products" class="group bg-stone-900 hover:bg-stone-800 text-white px-12 py-6 rounded-3xl font-black text-2xl shadow-[0_30px_40px_-15px_rgba(249,115,22,0.5)] hover:shadow-[0_40px_60px_-15px_rgba(249,115,22,0.8)] transition-all flex items-center gap-4 border border-orange-500/30"><i class="fas fa-bolt text-3xl group-hover:rotate-12 transition"></i> switch <span class="text-orange-300">now</span></a>
+          <a href="#crisis" class="border-4 border-white/70 bg-white/30 backdrop-blur-xl px-10 py-5 rounded-3xl font-black text-stone-800 text-xl transition-all hover:bg-white/50 hover:scale-105 flex items-center gap-2"><i class="far fa-clock"></i> why suffer?</a>
+        </div>
+      </div>
+      <!-- right: floating 3D product spectacle -->
+      <div class="hidden lg:flex justify-center relative">
+        <div class="relative w-[500px] h-[500px]">
+          <div class="absolute inset-0 bg-gradient-to-tr from-orange-300 via-amber-300 to-red-300 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+          <div class="relative w-full h-full flex items-center justify-center animate-float-pan">
+            <div class="w-80 h-80 glossy-card rounded-[4rem] shadow-2xl rotate-12 border-4 border-white/50 flex flex-col items-center justify-center gap-3 p-10">
+              <i class="fas fa-khanda text-8xl text-orange-600 drop-shadow-2xl"></i>
+              <span class="text-5xl font-black text-stone-800">kadhai</span>
+              <span class="bg-orange-500 text-white px-5 py-2 rounded-full text-sm font-black -rotate-2 shadow-2xl">#LPG killer</span>
+            </div>
+          </div>
+          <!-- floating tiny LPG ghost (burnt) -->
+          <div class="absolute -bottom-10 -left-10 opacity-10 animate-spin-slow">
+            <i class="fas fa-fire text-9xl text-stone-600"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔥 CRISIS DEEP DIVE (juicy) -->
+<section id="crisis" class="py-36 relative overflow-hidden bg-white/40 backdrop-blur-3xl">
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22 width=%2240%22 height=%2240%22><path d=%22M20 5 L25 15 L35 15 L27 23 L30 35 L20 28 L10 35 L13 23 L5 15 L15 15 Z%22 fill=%22%23f97316%22 opacity=%220.03%22/></svg>')] bg-repeat opacity-30"></div>
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 relative">
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600 font-black text-lg tracking-[0.4em]">▌ CRISIS REALITY ▌</span>
+      <h2 class="text-6xl md:text-7xl font-black text-stone-800 mt-3 mb-5">LPG<span class="text-orange-500"> wait </span>is <span class="underline decoration-orange-400 underline-offset-8">insane</span></h2>
+      <p class="text-2xl text-stone-600">30+ days for cylinder? switch to 14h electricity — never book again.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="group liquid-shine bg-white/70 backdrop-blur-2xl rounded-[3rem] p-10 shadow-2xl border-4 border-white/70 hover:border-orange-300 transition-all hover:-translate-y-4">
+        <div class="w-24 h-24 bg-gradient-to-br from-red-400 to-orange-400 rounded-3xl flex items-center justify-center text-white text-5xl mb-8 shadow-2xl group-hover:scale-110 transition">⌛</div>
+        <h3 class="text-3xl font-black mb-4">32 days avg</h3>
+        <p class="text-xl text-stone-600">metro cities: endless refill queue. ElectroMasala works 14h/day, no booking.</p>
+      </div>
+      <div class="group liquid-shine bg-white/70 backdrop-blur-2xl rounded-[3rem] p-10 shadow-2xl border-4 border-white/70 hover:border-orange-300 transition-all hover:-translate-y-4">
+        <div class="w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-500 rounded-3xl flex items-center justify-center text-white text-5xl mb-8 shadow-2xl group-hover:scale-110 transition">💰</div>
+        <h3 class="text-3xl font-black mb-4">₹2500/month</h3>
+        <p class="text-xl text-stone-600">save 70% vs LPG. no black market, no delivery tip, no tension.</p>
+      </div>
+      <div class="group liquid-shine bg-white/70 backdrop-blur-2xl rounded-[3rem] p-10 shadow-2xl border-4 border-white/70 hover:border-orange-300 transition-all hover:-translate-y-4">
+        <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-teal-400 rounded-3xl flex items-center justify-center text-white text-5xl mb-8 shadow-2xl group-hover:scale-110 transition">🌱</div>
+        <h3 class="text-3xl font-black mb-4">zero emissions</h3>
+        <p class="text-xl text-stone-600">no leakage, no explosion. smarter than cylinder, safer for kids.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🛒 PRODUCTS – ULTRA ATTRACTIVE (glossy & shiny) -->
+<section id="products" class="py-36 bg-gradient-to-b from-[#fff1e0] to-amber-50/90">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="text-center mb-20">
+      <span class="text-orange-500 font-black text-lg tracking-[0.3em]">COLLECTION X</span>
+      <h2 class="text-6xl md:text-7xl font-black text-stone-800 mt-2">electric <span class="text-orange-500">arsenal</span></h2>
+      <p class="text-2xl text-stone-500 mt-3">desi cookware · zero LPG · infinite swag</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- kadhai bestseller (super glossy) -->
+      <div class="group glossy-card rounded-[4rem] p-8 border-4 border-white/60 hover:border-orange-400 transition-all hover:-translate-y-5 shadow-2xl">
+        <div class="relative mb-8">
+          <div class="h-72 w-full bg-gradient-to-br from-orange-200 via-amber-200 to-red-200 rounded-[3rem] flex items-center justify-center"><i class="fas fa-egg text-8xl text-orange-500 group-hover:scale-125 transition drop-shadow-2xl"></i></div>
+          <span class="absolute top-6 right-6 bg-gradient-to-r from-red-500 to-orange-400 text-white px-5 py-3 text-sm font-black rounded-full shadow-2xl border border-white">🔥 BESTSELLER</span>
+        </div>
+        <h3 class="text-4xl font-black flex items-center gap-2"><i class="fas fa-khanda text-orange-500"></i> Kadhai 28cm</h3>
+        <ul class="my-6 space-y-3 text-lg text-stone-700">
+          <li><i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i> 1400W · auto temp</li>
+          <li><i class="fas fa-check-circle text-green-600 mr-3 text-xl"></i> forever non-stick</li>
+        </ul>
+        <div class="flex items-baseline justify-between border-t-2 border-white/50 pt-6 mt-4">
+          <span class="text-5xl font-black price-splash">₹4,999</span>
+          <span class="text-2xl text-stone-400 line-through">₹7,999</span>
+        </div>
+        <button class="w-full mt-8 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black py-5 rounded-2xl text-2xl shadow-2xl hover:scale-105 transition border-b-4 border-orange-800 flex items-center justify-center gap-3"><i class="fas fa-cart-shopping"></i> add</button>
+      </div>
+      <!-- tawa -->
+      <div class="group glossy-card rounded-[4rem] p-8 border-4 border-white/60 hover:border-blue-300 transition-all hover:-translate-y-5 shadow-2xl">
+        <div class="h-72 w-full bg-gradient-to-br from-blue-100 to-indigo-100 rounded-[3rem] flex items-center justify-center"><i class="fas fa-bread-slice text-8xl text-blue-400"></i></div>
+        <h3 class="text-4xl font-black flex items-center gap-2 mt-4"><i class="fas fa-utensils text-blue-500"></i> Tawa 30cm</h3>
+        <ul class="my-6 space-y-3 text-lg"><li><i class="fas fa-check-circle text-green-600 mr-3"></i> perfect roti · touch</li><li><i class="fas fa-check-circle text-green-600 mr-3"></i> 1200W even heat</li></ul>
+        <div class="flex items-baseline justify-between border-t-2 border-white/50 pt-6">
+          <span class="text-5xl font-black price-splash">₹3,499</span><span class="text-2xl text-stone-400 line-through">₹5,499</span>
+        </div>
+        <button class="w-full mt-8 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-black py-5 rounded-2xl text-2xl shadow-2xl hover:scale-105 transition">add</button>
+      </div>
+      <!-- pressure cooker new -->
+      <div class="group glossy-card rounded-[4rem] p-8 border-4 border-white/60 hover:border-emerald-300 transition-all hover:-translate-y-5 shadow-2xl">
+        <div class="relative"><div class="h-72 w-full bg-gradient-to-br from-emerald-100 to-teal-100 rounded-[3rem] flex items-center justify-center"><i class="fas fa-drumstick-bite text-8xl text-emerald-500"></i></div><span class="absolute top-6 left-6 bg-emerald-600 text-white px-5 py-3 text-sm font-black rounded-full shadow-2xl">⚡ NEW</span></div>
+        <h3 class="text-4xl font-black flex items-center gap-2 mt-4"><i class="fas fa-clock text-emerald-500"></i> PC 5L</h3>
+        <ul class="my-6 space-y-3 text-lg"><li><i class="fas fa-check-circle text-green-600 mr-3"></i> smart release + app</li><li><i class="fas fa-check-circle text-green-600 mr-3"></i> 1600W induction</li></ul>
+        <div class="flex items-baseline justify-between border-t-2 border-white/50 pt-6"><span class="text-5xl font-black price-splash">₹7,999</span><span class="text-2xl text-stone-400 line-through">₹10,999</span></div>
+        <button class="w-full mt-8 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black py-5 rounded-2xl text-2xl shadow-2xl">add</button>
+      </div>
+    </div>
+    <!-- trust badges ultra shiny -->
+    <div class="flex flex-wrap items-center justify-center gap-12 mt-20 text-xl font-bold text-stone-600">
+      <span class="bg-white/70 px-7 py-4 rounded-full shadow-2xl border border-white"><i class="fas fa-truck-fast text-orange-500 mr-3"></i> free delivery</span>
+      <span class="bg-white/70 px-7 py-4 rounded-full shadow-2xl border border-white"><i class="fas fa-shield text-orange-500 mr-3"></i> 2 year warranty</span>
+      <span class="bg-white/70 px-7 py-4 rounded-full shadow-2xl border border-white"><i class="fas fa-rotate-left text-orange-500 mr-3"></i> 30-day return</span>
+    </div>
+  </div>
+</section>
+
+<!-- SMART + SAVINGS dream -->
+<section id="smart" class="py-32 bg-white/80 backdrop-blur-3xl">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <span class="text-orange-500 font-black tracking-[0.2em] text-lg">▣ SMART TECH</span>
+        <h2 class="text-6xl font-black mt-4 mb-8">intelligence > LPG</h2>
+        <ul class="space-y-8 text-xl">
+          <li class="flex gap-6 items-center"><span class="w-16 h-16 bg-orange-200 rounded-2xl flex items-center justify-center text-orange-600 text-3xl">⚡</span> <div><span class="font-black text-2xl">14‑hour backup</span><br><span class="text-stone-500">built for indian power cuts</span></div></li>
+          <li class="flex gap-6 items-center"><span class="w-16 h-16 bg-orange-200 rounded-2xl flex items-center justify-center text-orange-600 text-3xl">🌡️</span> <div><span class="font-black text-2xl">precision temp</span><br><span class="text-stone-500">no burnt roti, perfect dal</span></div></li>
+          <li class="flex gap-6 items-center"><span class="w-16 h-16 bg-orange-200 rounded-2xl flex items-center justify-center text-orange-600 text-3xl">🔒</span> <div><span class="font-black text-2xl">child lock + auto shutoff</span><br><span class="text-stone-500">safer than cylinder</span></div></li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-orange-100 to-amber-100 rounded-[4rem] p-14 shadow-2xl border-4 border-white/70">
+        <div class="text-8xl font-black text-orange-600 mb-5">₹18k</div>
+        <p class="text-3xl font-black text-stone-800">avg yearly saving</p>
+        <p class="text-xl text-stone-600 mt-3">vs LPG + no delivery tips.</p>
+        <div class="grid grid-cols-2 gap-6 mt-12">
+          <div class="bg-white/80 p-6 rounded-3xl text-center shadow-2xl"><i class="fas fa-solar-panel text-4xl text-orange-500 mb-2"></i><span class="font-black">solar ready</span></div>
+          <div class="bg-white/80 p-6 rounded-3xl text-center shadow-2xl"><i class="fas fa-wifi text-4xl text-orange-500 mb-2"></i><span class="font-black">IoT enabled</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL FIRE CALL -->
+<section class="relative bg-stone-900 text-white py-32 overflow-hidden">
+  <div class="absolute inset-0 opacity-5"><i class="fas fa-bolt text-[20rem] absolute -bottom-20 -left-20 rotate-12"></i></div>
+  <div class="max-w-4xl mx-auto text-center px-5 relative">
+    <h2 class="text-7xl md:text-8xl font-black mb-8 leading-tight">no LPG.<br><span class="text-orange-400">always cook.</span></h2>
+    <p class="text-3xl text-stone-300 mb-16">14h electricity · 70% cheaper · 50k+ families free</p>
+    <a href="#products" class="inline-block bg-gradient-to-r from-orange-500 to-amber-400 text-stone-900 px-20 py-7 rounded-full font-black text-3xl shadow-2xl hover:scale-110 transition-all hover:shadow-orange-500/50 border-4 border-white/50">⚡ freedom now ⚡</a>
+    <div class="border-t border-stone-800 mt-24 pt-12 text-sm text-stone-400 flex flex-wrap justify-center gap-10">
+      <span>© ElectroMasala – end LPG era</span>
+      <a href="#" class="hover:text-white">privacy</a>
+      <a href="#" class="hover:text-white">contact</a>
+      <span><i class="fas fa-bolt mr-1"></i> pure electric · desi heart</span>
+    </div>
+  </div>
+</section>
+
+<!-- micro cart animation (super attractive) -->
+<script>
+  (function() {
+    let cart = 0;
+    const badge = document.querySelector('.fa-bag-shopping + span');
+    const btns = document.querySelectorAll('#products button');
+    btns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        cart++;
+        if(badge) badge.innerText = cart;
+        this.classList.add('scale-95', 'brightness-110');
+        setTimeout(() => this.classList.remove('scale-95', 'brightness-110'), 150);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
